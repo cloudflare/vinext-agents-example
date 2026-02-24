@@ -1,0 +1,37 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "next-agents",
+  "compatibility_date": "2026-02-12",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./worker/index.ts",
+  "preview_urls": true,
+  "ai": { "binding": "AI", "remote": true },
+  "assets": {
+    "directory": "./public",
+    "not_found_handling": "none",
+    // Expose static assets to the Worker via env.ASSETS so the image
+    // optimization handler can fetch source images programmatically.
+    "binding": "ASSETS",
+    "run_worker_first": ["/agents/*"]
+  },
+  // Cloudflare Images binding for next/image optimization.
+  // Enables resize, format negotiation (AVIF/WebP), and quality transforms
+  // at the edge. No user setup needed — wrangler creates the binding automatically.
+  "images": {
+    "binding": "IMAGES"
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "class_name": "ChatAgent",
+        "name": "ChatAgent"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "new_sqlite_classes": ["ChatAgent"],
+      "tag": "v1"
+    }
+  ]
+}
