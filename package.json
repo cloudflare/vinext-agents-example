@@ -5,15 +5,15 @@
   "scripts": {
     "dev": "vite dev",
     "deploy": "vite build && wrangler deploy",
-    "lint": "eslint"
+    "lint": "oxlint"
   },
   "dependencies": {
-    "@cloudflare/ai-chat": "^0.1.3",
-    "@cloudflare/kumo": "^1.7.0",
+    "@cloudflare/ai-chat": "^0.1.5",
+    "@cloudflare/kumo": "^1.9.0",
     "@phosphor-icons/react": "^2.1.10",
-    "@vitejs/plugin-rsc": "^0.5.20",
-    "agents": "^0.5.1",
-    "ai": "^6.0.97",
+    "@vitejs/plugin-rsc": "^0.5.21",
+    "agents": "^0.6.0",
+    "ai": "^6.0.101",
     "next": "16.1.6",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -22,21 +22,20 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@cloudflare/vite-plugin": "^1.25.4",
-    "@cloudflare/workers-types": "^4.20260303.0",
+    "@cloudflare/vite-plugin": "^1.25.5",
+    "@cloudflare/workers-types": "^4.20260305.0",
     "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
+    "@types/node": "^25",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "oxlint": "latest",
     "react-server-dom-webpack": "^19.2.4",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "vinext": "^0.0.4",
+    "vinext": "^0.0.11",
     "vite": "^7.3.1",
     "vite-plugin-devtools-json": "^1.0.0",
-    "wrangler": "^4.68.0"
+    "wrangler": "^4.68.1"
   },
   "type": "module"
 }

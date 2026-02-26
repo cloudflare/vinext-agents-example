@@ -225,6 +225,7 @@ function ChatInner() {
   const [connected, setConnected] = useState(false);
   const [input, setInput] = useState("");
   const [showDebug, setShowDebug] = useState(false);
+  const [manualStopped, setManualStopped] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   const toasts = useKumoToastManager();
@@ -283,7 +284,18 @@ function ChatInner() {
     },
   });
 
-  const isStreaming = status === "streaming" || status === "submitted";
+  const isStreaming = !manualStopped && (status === "streaming" || status === "submitted");
+
+  useEffect(() => {
+    if (status === "streaming" || status === "submitted") {
+      setManualStopped(false);
+    }
+  }, [status]);
+
+  const handleStop = useCallback(() => {
+    stop();
+    setManualStopped(true);
+  }, [stop]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -528,7 +540,7 @@ function ChatInner() {
                 shape="square"
                 aria-label="Stop generation"
                 icon={<StopIcon size={18} />}
-                onClick={stop}
+                onClick={handleStop}
                 className="mb-0.5"
               />
             ) : (
