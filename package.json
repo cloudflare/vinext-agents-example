@@ -14,7 +14,7 @@
     "@vitejs/plugin-rsc": "^0.5.21",
     "agents": "^0.6.0",
     "ai": "^6.0.101",
-    "next": "16.1.6",
+    "next": "16.2.0",
     "react": "19.2.4",
     "react-dom": "19.2.4",
     "streamdown": "^2.3.0",
