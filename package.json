@@ -29,7 +29,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "oxlint": "latest",
-    "react-server-dom-webpack": "^19.2.4",
+    "react-server-dom-webpack": "^19.2.5",
     "tailwindcss": "^4",
     "typescript": "^5",
     "vinext": "^0.0.11",
